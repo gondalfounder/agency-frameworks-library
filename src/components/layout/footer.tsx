@@ -26,10 +26,10 @@ export function Footer() {
 
           <div className="pt-2 flex justify-center">
             <Link
-              href="/about#add-framework"
+              href="/upload"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-[2px] bg-accent text-white text-xs font-sans font-medium hover:opacity-90 transition-opacity"
             >
-              <span>Learn how to contribute</span>
+              <span>Upload or contribute</span>
               <CircledArrow size={14} />
             </Link>
           </div>
@@ -84,6 +84,11 @@ export function Footer() {
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
                   About Library
+                </Link>
+              </li>
+              <li>
+                <Link href="/upload" className="hover:text-white transition-colors">
+                  Upload Portal
                 </Link>
               </li>
               <li>

@@ -15,7 +15,7 @@ export function CtaTile() {
       className="h-full"
     >
       <Link
-        href="/about#add-framework"
+        href="/upload"
         className="group relative flex flex-col justify-between h-full bg-accent text-white p-6 rounded-card border border-accent overflow-hidden min-h-[240px] shadow-sm hover:bg-accent-hover transition-colors duration-200"
       >
         {/* Background Decorative SVG */}

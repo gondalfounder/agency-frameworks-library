@@ -49,6 +49,7 @@ export function TopBar() {
 
   const navLinks = [
     { href: "/frameworks", label: "Library" },
+    { href: "/upload", label: "Upload" },
     { href: "/about", label: "About" },
   ];
 
@@ -128,7 +129,7 @@ export function TopBar() {
 
             {/* Add Framework Button */}
             <Link
-              href="/about#add-framework"
+              href="/upload"
               className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] bg-ink text-bg font-sans text-xs font-medium hover:bg-ink-2 transition-colors"
             >
               <Plus className="w-3.5 h-3.5" />
@@ -171,7 +172,7 @@ export function TopBar() {
                 </Link>
               ))}
               <Link
-                href="/about#add-framework"
+                href="/upload"
                 className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-[2px] bg-ink text-bg font-sans text-xs font-medium"
               >
                 <Plus className="w-3.5 h-3.5" />

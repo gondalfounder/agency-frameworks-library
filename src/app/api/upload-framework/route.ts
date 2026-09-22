@@ -60,6 +60,10 @@ export async function POST(request: Request) {
 
     const sanitizedFileName = slugifyFileName(rawFileName);
 
+    const titleInput = formData.get("title");
+    const levelInput = formData.get("level");
+    const tagsInput = formData.get("tags");
+
     // Parse and update frontmatter
     const parsed = matter(rawContent);
     const data = parsed.data || {};
@@ -70,16 +74,31 @@ export async function POST(request: Request) {
       data.category = "General";
     }
 
+    if (typeof titleInput === "string" && titleInput.trim().length > 0) {
+      data.title = titleInput.trim();
+    }
+
+    if (typeof levelInput === "string" && levelInput.trim().length > 0) {
+      data.level = levelInput.trim().toUpperCase();
+      data.difficulty = levelInput.trim();
+    } else if (!data.level && !data.difficulty) {
+      data.level = "INTERMEDIATE";
+      data.difficulty = "Intermediate";
+    }
+
+    if (typeof tagsInput === "string" && tagsInput.trim().length > 0) {
+      data.tags = tagsInput
+        .split(",")
+        .map((t) => t.trim())
+        .filter(Boolean);
+    }
+
     if (!data.name) {
       data.name = sanitizedFileName.replace(/\.md$/i, "");
     }
 
     if (!data.date) {
       data.date = new Date().toISOString().split("T")[0];
-    }
-
-    if (!data.level && !data.difficulty) {
-      data.level = "INTERMEDIATE";
     }
 
     const updatedMarkdown = matter.stringify(parsed.content || "", data);

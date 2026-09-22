@@ -144,3 +144,11 @@ agency-frameworks-dashboard/
 5. Run the build, fix errors, then give me: how to run, how to add a framework, how to deploy.
 
 Ask me at most ONE question, and only if truly blocked. Otherwise proceed.
+
+## Autonomous Git Sync Protocol
+Whenever you add, modify, or delete a framework in `content/frameworks/` or make code adjustments:
+1. Verify frontmatter metadata integrity.
+2. Stage all modifications: `git add .`
+3. Commit with a descriptive conventional commit message: `git commit -m "feat/content: <short summary of changes>"`
+4. Push directly to remote: `git push origin main`
+5. Report the commit hash and updated framework slug to the user.
