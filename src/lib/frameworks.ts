@@ -179,6 +179,10 @@ function scanMarkdownFiles(dir: string): string[] {
 // In-memory cache for fast SSG lookups
 let cachedFrameworks: FrameworkMetadata[] | null = null;
 
+export function clearFrameworksCache() {
+  cachedFrameworks = null;
+}
+
 export function getAllFrameworks(): FrameworkMetadata[] {
   if (cachedFrameworks) {
     return cachedFrameworks;

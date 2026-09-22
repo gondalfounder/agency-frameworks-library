@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
+import { clearFrameworksCache } from "@/lib/frameworks";
 
 function slugifyFileName(name: string): string {
   const base = name.replace(/\.mdx?$/i, "");
@@ -118,6 +119,7 @@ export async function POST(request: Request) {
       }
       const localFilePath = path.join(localDirPath, sanitizedFileName);
       fs.writeFileSync(localFilePath, updatedMarkdown, "utf8");
+      clearFrameworksCache();
     } catch {
       // Ignore local write failure in read-only environments (e.g. Vercel)
     }
